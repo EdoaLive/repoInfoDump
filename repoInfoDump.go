@@ -2,6 +2,7 @@ package repoInfoDump
 
 import (
 	"errors"
+	"path"
 	"runtime/debug"
 	"slices"
 )
@@ -26,7 +27,7 @@ func New() (Values, error) {
 		return v, errors.New("can't read build info")
 	}
 
-	v.Name = bi.Path
+	v.Name = path.Base(bi.Main.Path)
 
 	if rev, ok := getBuildSettingValue(bi.Settings, "vcs.revision"); ok {
 		v.Commit = rev
