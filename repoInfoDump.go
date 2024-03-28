@@ -14,6 +14,11 @@ type Values struct {
 	Modified bool
 }
 
+// Version can be set before calling these methods,
+// or it can be set with build time parameter, e.g.
+// -ldflags "-X github.com/EdoaLive/repoInfoDump.Version=v0.1.3"
+var Version = ""
+
 func GetString() string {
 	v, _ := New()
 	return v.String()
@@ -42,7 +47,10 @@ func New() (Values, error) {
 }
 
 func (v Values) String() string {
-	info := "Starting " + v.Name
+	info := v.Name
+	if Version != "" {
+		info += " " + Version
+	}
 	if v.Commit != "" {
 		info += " commit: " + v.Commit[:7]
 	}
