@@ -8,12 +8,11 @@ fmt.println(repoInfoDump.GetString())
 ```
 Output example:
 ```
-Starting repoInfoDumpTest commit: 12a5db0 (2023-02-09T17:16:14Z) (REPO MODIFIED)
+repoInfoDump v0.1.3 commit: cf5013a (2024-03-28T11:53:42Z) (REPO MODIFIED)
 ```
 
 Other customized usages are possible.
 
 ## TODO
-* Better documentation
-* Add link-time git tag version info
+* Improve documentation
 
